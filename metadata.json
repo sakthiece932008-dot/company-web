@@ -1,0 +1,6 @@
+{
+  "name": "VIYON Defence Technologies",
+  "description": "Official corporate portal for VIYON Defence Technologies Pvt. Ltd featuring CERON OS, mission, team, inquiry, and Zoya AI assistant.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
