@@ -86,6 +86,23 @@ export const AboutTab: React.FC = () => {
                       target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(
                         member.name
                       )}&background=022c22&color=10b981&bold=true&size=256`;
+                      const target = e.target as HTMLImageElement;
+                      const src = target.src;
+                      if (src.endsWith('.jpeg')) {
+                        target.src = `/team/${member.id}.jpg`;
+                      } else if (src.endsWith('.jpg')) {
+                        target.src = `/team/${member.id}.png`;
+                      } else if (src.endsWith('.png')) {
+                        target.src = `/team/${member.id}.webp`;
+                      } else if (src.endsWith('.webp')) {
+                        target.src = `/team/${member.id}.JPEG`;
+                      } else if (src.endsWith('.JPEG')) {
+                        target.src = `/team/${member.id}.JPG`;
+                      } else {
+                        target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(
+                          member.name
+                        )}&background=022c22&color=10b981&bold=true&size=256`;
+                      }
                     }}
                   />
                   <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-1 text-center">
@@ -221,6 +238,22 @@ export const AboutTab: React.FC = () => {
                     target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(
                       selectedMember.name
                     )}&background=022c22&color=10b981&bold=true&size=256`;
+                    const src = target.src;
+                    if (src.endsWith('.jpeg')) {
+                      target.src = `/team/${selectedMember.id}.jpg`;
+                    } else if (src.endsWith('.jpg')) {
+                      target.src = `/team/${selectedMember.id}.png`;
+                    } else if (src.endsWith('.png')) {
+                      target.src = `/team/${selectedMember.id}.webp`;
+                    } else if (src.endsWith('.webp')) {
+                      target.src = `/team/${selectedMember.id}.JPEG`;
+                    } else if (src.endsWith('.JPEG')) {
+                      target.src = `/team/${selectedMember.id}.JPG`;
+                    } else {
+                      target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(
+                        selectedMember.name
+                      )}&background=022c22&color=10b981&bold=true&size=256`;
+                    }
                   }}
                 />
               </div>

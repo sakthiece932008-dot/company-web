@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import React, { useState, useEffect } from 'react';
 import { Shield, Eye, Target, Cpu, Play, RotateCcw, ArrowRight, Zap, CheckCircle2, Award, Radar } from 'lucide-react';
+=======
+import React, { useState, useRef } from 'react';
+import { Shield, Eye, Target, Cpu, ArrowRight, Zap, CheckCircle2, Award, Radar, Volume2, VolumeX, Play, Pause, Maximize } from 'lucide-react';
+>>>>>>> 4c95d42 (Update team photos, full page video intro, and website layout)
 import { COMPANY_INFO } from '../data/companyData';
 import { TabType } from '../types';
 
@@ -9,6 +14,7 @@ interface HomeTabProps {
 }
 
 export const HomeTab: React.FC<HomeTabProps> = ({ onNavigateTab, onOpenZoya }) => {
+<<<<<<< HEAD
   const [introStep, setIntroStep] = useState<number>(0);
   const [isPlayingIntro, setIsPlayingIntro] = useState<boolean>(true);
 
@@ -32,10 +38,43 @@ export const HomeTab: React.FC<HomeTabProps> = ({ onNavigateTab, onOpenZoya }) =
   const handleReplayIntro = () => {
     setIntroStep(0);
     setIsPlayingIntro(true);
+=======
+  const [isMuted, setIsMuted] = useState<boolean>(true);
+  const [isPlaying, setIsPlaying] = useState<boolean>(true);
+  const [hasVideoError, setHasVideoError] = useState<boolean>(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const togglePlay = () => {
+    if (videoRef.current) {
+      if (isPlaying) {
+        videoRef.current.pause();
+        setIsPlaying(false);
+      } else {
+        videoRef.current.play();
+        setIsPlaying(true);
+      }
+    }
+  };
+
+  const toggleMute = () => {
+    if (videoRef.current) {
+      videoRef.current.muted = !isMuted;
+      setIsMuted(!isMuted);
+    }
+  };
+
+  const toggleFullScreen = () => {
+    if (videoRef.current) {
+      if (videoRef.current.requestFullscreen) {
+        videoRef.current.requestFullscreen();
+      }
+    }
+>>>>>>> 4c95d42 (Update team photos, full page video intro, and website layout)
   };
 
   return (
     <div className="space-y-8 animate-fadeIn">
+<<<<<<< HEAD
       {/* Hero Section with Animated High-Tech Defence Intro */}
       <div className="relative rounded-2xl bg-[#03150d]/80 backdrop-blur-xl border border-emerald-900/40 p-6 sm:p-10 overflow-hidden shadow-[0_0_30px_rgba(16,185,129,0.2)]">
         {/* Background Radar / Cyber grid overlay */}
@@ -111,10 +150,76 @@ export const HomeTab: React.FC<HomeTabProps> = ({ onNavigateTab, onOpenZoya }) =
               <p className="text-sm sm:text-base text-emerald-100/90 leading-relaxed font-sans">
                 "{COMPANY_INFO.mission}"
               </p>
+=======
+      {/* FULL PAGE / FULL VIEWPORT HERO VIDEO INTRO CONTAINER */}
+      <div className="relative w-full min-h-[550px] sm:h-[80vh] rounded-3xl overflow-hidden border border-emerald-500/30 shadow-[0_0_50px_rgba(16,185,129,0.3)] bg-[#021109] flex flex-col justify-between p-6 sm:p-12">
+        {/* Background Video Element */}
+        {!hasVideoError ? (
+          <video
+            ref={videoRef}
+            autoPlay
+            loop
+            muted={isMuted}
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover z-0 transition-opacity duration-700"
+            onError={() => setHasVideoError(true)}
+          >
+            <source src="/video/intro.mp4" type="video/mp4" />
+            <source src="/video/intro.webm" type="video/webm" />
+            <source src="/video/intro.mov" type="video/quicktime" />
+          </video>
+        ) : null}
+
+        {/* High-Tech Animated Canvas Grid Overlay if video missing */}
+        {hasVideoError && (
+          <div className="absolute inset-0 z-0 bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:24px_24px] opacity-25" />
+        )}
+
+        {/* Cinematic Gradient Backdrop Overlay */}
+        <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#010805] via-[#010805]/65 to-black/40 pointer-events-none" />
+
+        {/* Top Header Bar */}
+        <div className="relative z-20 flex items-center justify-between pb-4 border-b border-emerald-500/20">
+          <div className="flex items-center gap-2 font-mono text-xs text-emerald-400">
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 shadow-[0_0_10px_#10b981] animate-pulse" />
+            <span className="font-bold tracking-[0.2em] uppercase text-white sm:text-sm">
+              VIYON DEFENCE TECHNOLOGIES
+            </span>
+          </div>
+        </div>
+
+        {/* Hero Video Main Content Text Overlay */}
+        <div className="relative z-20 max-w-4xl space-y-4 my-auto py-6">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-emerald-400/40 bg-emerald-500/20 backdrop-blur-md text-emerald-300 text-xs font-mono font-bold tracking-widest uppercase shadow-lg">
+            <Radar className="w-4 h-4 text-emerald-400 animate-spin" />
+            <span>INTELLIGENCE BEYOND DEFENCE</span>
+          </div>
+
+          <h1 className="text-3xl sm:text-6xl font-black text-white tracking-tight leading-tight font-sans drop-shadow-md">
+            Next-Generation <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-green-500">
+              Autonomous Defence Intelligence
+            </span>
+          </h1>
+
+          <p className="text-lg sm:text-2xl font-mono font-bold text-emerald-300 tracking-wider">
+            "{COMPANY_INFO.motto}"
+          </p>
+
+          <p className="text-sm sm:text-base text-emerald-100/90 leading-relaxed max-w-2xl font-sans drop-shadow">
+            {COMPANY_INFO.vision}
+          </p>
+
+          {/* Banner notification if intro.mp4 needs to be added */}
+          {hasVideoError && (
+            <div className="mt-4 p-3 rounded-xl bg-emerald-950/90 border border-emerald-500/40 text-xs font-mono text-emerald-300 inline-block">
+              ℹ️ To play your custom intro video, place <code className="bg-black/50 px-2 py-0.5 rounded text-white">intro.mp4</code> into the <code className="bg-black/50 px-2 py-0.5 rounded text-emerald-400">public/video/</code> folder!
+>>>>>>> 4c95d42 (Update team photos, full page video intro, and website layout)
             </div>
           )}
         </div>
 
+<<<<<<< HEAD
         {/* Quick CTA buttons */}
         <div className="relative z-10 pt-6 mt-6 border-t border-emerald-900/40 flex flex-wrap items-center justify-center gap-3">
           <button
@@ -125,23 +230,47 @@ export const HomeTab: React.FC<HomeTabProps> = ({ onNavigateTab, onOpenZoya }) =
             <Cpu className="w-4 h-4" />
             <span>Explore CERON OS</span>
             <ArrowRight className="w-4 h-4" />
+=======
+        {/* Hero Call-To-Action Navigation Bar */}
+        <div className="relative z-20 pt-4 border-t border-emerald-500/20 flex flex-wrap items-center gap-3">
+          <button
+            onClick={() => onNavigateTab('product')}
+            id="btn-home-explore-ceron"
+            className="px-6 py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-400 hover:to-teal-300 text-emerald-950 font-black text-sm font-mono uppercase tracking-wider flex items-center gap-2 shadow-[0_0_25px_rgba(16,185,129,0.5)] transition-all cursor-pointer active:scale-95"
+          >
+            <Cpu className="w-5 h-5 text-emerald-950" />
+            <span>Explore CERON OS</span>
+            <ArrowRight className="w-5 h-5" />
+>>>>>>> 4c95d42 (Update team photos, full page video intro, and website layout)
           </button>
 
           <button
             onClick={() => onNavigateTab('about')}
             id="btn-home-view-team"
+<<<<<<< HEAD
             className="px-5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-emerald-200 hover:text-white font-bold text-sm font-mono uppercase tracking-wider flex items-center gap-2 transition-all cursor-pointer"
           >
             <Shield className="w-4 h-4 text-emerald-400" />
+=======
+            className="px-6 py-3 rounded-xl bg-black/60 hover:bg-black/80 border border-emerald-500/40 text-emerald-200 hover:text-white font-bold text-sm font-mono uppercase tracking-wider flex items-center gap-2 transition-all cursor-pointer backdrop-blur-md"
+          >
+            <Shield className="w-5 h-5 text-emerald-400" />
+>>>>>>> 4c95d42 (Update team photos, full page video intro, and website layout)
             <span>Leadership & Team</span>
           </button>
 
           <button
             onClick={() => onNavigateTab('enquiry')}
             id="btn-home-send-enquiry"
+<<<<<<< HEAD
             className="px-5 py-2.5 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/30 text-emerald-300 font-bold text-sm font-mono uppercase tracking-wider flex items-center gap-2 transition-all cursor-pointer"
           >
             <Zap className="w-4 h-4 text-emerald-400" />
+=======
+            className="px-6 py-3 rounded-xl bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 font-bold text-sm font-mono uppercase tracking-wider flex items-center gap-2 transition-all cursor-pointer backdrop-blur-md"
+          >
+            <Zap className="w-5 h-5 text-emerald-400" />
+>>>>>>> 4c95d42 (Update team photos, full page video intro, and website layout)
             <span>Send Defence Enquiry</span>
           </button>
         </div>

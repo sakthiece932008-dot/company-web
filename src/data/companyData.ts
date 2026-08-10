@@ -21,7 +21,11 @@ export const TEAM_MEMBERS: TeamMember[] = [
     position: 'Founder & Chief Executive Officer',
     category: 'Founder',
     description: 'Visionary leader behind VIYON Defence Technologies. Directs strategic vision, core defence AI architecture, and partnerships for national security technological independence.',
+<<<<<<< HEAD
     photoUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=600',
+=======
+    photoUrl: '/team/sakthi-saravanan.jpeg',
+>>>>>>> 4c95d42 (Update team photos, full page video intro, and website layout)
     photoSetting: 'Seated comfortably on executive sofa, leading strategic vision & core enterprise direction.',
     email: 'sakthiece932008@gmail.com',
     skills: ['Strategic Defence AI', 'Executive Leadership', 'System Architecture', 'Product Roadmap']
@@ -33,7 +37,11 @@ export const TEAM_MEMBERS: TeamMember[] = [
     position: 'Co-Founder & Chief Technology Officer',
     category: 'Co-Founder',
     description: 'Co-founder driving hardware-software integration, autonomous systems engineering, and multi-sensor edge intelligence framework.',
+<<<<<<< HEAD
     photoUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=600',
+=======
+    photoUrl: '/team/sanjay-deivasigamani.jpeg',
+>>>>>>> 4c95d42 (Update team photos, full page video intro, and website layout)
     photoSetting: 'Formal blazer in corporate innovation bay, leading hardware-software R&D.',
     skills: ['Embedded Hardware', 'Autonomous Robotics', 'Sensor Fusion', 'System Integration']
   },
@@ -44,7 +52,11 @@ export const TEAM_MEMBERS: TeamMember[] = [
     position: 'Lead AI Engineer & Threat Perception Specialist',
     category: 'Engineering',
     description: 'Pioneers real-time deep learning models, neural threat evaluation, and multi-sensor target classification algorithms for CERON OS.',
+<<<<<<< HEAD
     photoUrl: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=600',
+=======
+    photoUrl: '/team/rubesh-chinnasamy.jpeg',
+>>>>>>> 4c95d42 (Update team photos, full page video intro, and website layout)
     photoSetting: 'Keynote presentation speaker with microphone at Global Tech Innovate 2024.',
     skills: ['Deep Learning', 'Computer Vision', 'Threat Prediction Models', 'Neural Networks']
   },
@@ -55,7 +67,11 @@ export const TEAM_MEMBERS: TeamMember[] = [
     position: 'Lead Software Engineer & CERON OS Platform Architect',
     category: 'Engineering',
     description: 'Architect of CERON OS high-performance core kernel, real-time command dashboard, low-latency data pipelines, and tactical display systems.',
+<<<<<<< HEAD
     photoUrl: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=600',
+=======
+    photoUrl: '/team/rohith-varatharaj.jpg',
+>>>>>>> 4c95d42 (Update team photos, full page video intro, and website layout)
     photoSetting: 'Presenting analytics, metric growth and software architecture on digital display.',
     skills: ['CERON OS Architecture', 'Real-Time Systems', 'Full-Stack Tactical UI', 'Low-Latency Pipelines']
   }
