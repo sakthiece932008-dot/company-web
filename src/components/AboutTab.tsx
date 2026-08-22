@@ -83,20 +83,16 @@ export const AboutTab: React.FC = () => {
                     onError={(e) => {
                       // Fallback stylized dark avatar if image fails
                       const target = e.target as HTMLImageElement;
-                      target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(
-                        member.name
-                      )}&background=022c22&color=10b981&bold=true&size=256`;
-                      const target = e.target as HTMLImageElement;
-                      const src = target.src;
-                      if (src.endsWith('.jpeg')) {
+                      const currentSrc = target.src;
+                      if (currentSrc.endsWith('.jpeg')) {
                         target.src = `/team/${member.id}.jpg`;
-                      } else if (src.endsWith('.jpg')) {
+                      } else if (currentSrc.endsWith('.jpg')) {
                         target.src = `/team/${member.id}.png`;
-                      } else if (src.endsWith('.png')) {
+                      } else if (currentSrc.endsWith('.png')) {
                         target.src = `/team/${member.id}.webp`;
-                      } else if (src.endsWith('.webp')) {
+                      } else if (currentSrc.endsWith('.webp')) {
                         target.src = `/team/${member.id}.JPEG`;
-                      } else if (src.endsWith('.JPEG')) {
+                      } else if (currentSrc.endsWith('.JPEG')) {
                         target.src = `/team/${member.id}.JPG`;
                       } else {
                         target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(
